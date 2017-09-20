@@ -19,6 +19,8 @@ class UserList extends React.Component {
 
   getStateFromStore() {
     const allMessages = MessagesStore.getAllChats()
+    // 試しにこれで書いてみる
+    // const allMessages = MessagesStore.getMessages()
 
     const messageList = []
     _.each(allMessages, (message) => {
@@ -46,6 +48,7 @@ class UserList extends React.Component {
 
   changeOpenChat(id) {
     MessagesAction.changeOpenChat(id)
+    // MessagesAction.getMessages()
   }
 
   render() {

@@ -1,7 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  message: MyText
+  content: MyText
+  from_id: 1
+  to_id: 1
 
 two:
-  message: MyText
+  content: MyText
+  from_id: 1
+  to_id: 1

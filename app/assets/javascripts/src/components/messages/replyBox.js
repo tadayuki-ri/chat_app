@@ -14,17 +14,24 @@ class ReplyBox extends React.Component {
       value: '',
     }
   }
+
   handleKeyDown(e) {
     if (e.keyCode === 13) {
-      MessagesAction.sendMessage(MessagesStore.getOpenChatUserID(), this.state.value)
+      // MessagesAction.sendMessage(MessagesStore.getOpenChatUserID(), this.state.value)
+      // DBとして保存させない場合
+      // MessagesAction.sendMessage(this.state.value)
+      // ここからpostのアクションに移行させたい
+      MessagesAction.postMessages(this.state.value)
       this.setState({
         value: '',
       })
     }
   }
+
   updateValue(e) {
     this.setState({
       value: e.target.value,
+      // value: MessagesStore.getMessages(),
     })
   }
 
@@ -32,6 +39,8 @@ class ReplyBox extends React.Component {
     return (
       <div className='reply-box'>
         <input
+          // idかkeyを定めたい
+          // key ={ message.id}
           value={ this.state.value }
           onKeyDown={ this.handleKeyDown.bind(this) }
           onChange={ this.updateValue.bind(this) }
