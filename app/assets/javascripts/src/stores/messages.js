@@ -1,6 +1,6 @@
 import Dispatcher from '../dispatcher'
 import BaseStore from '../base/store'
-import UserStore from '../stores/user'
+// import UserStore from '../stores/user'
 import {ActionTypes} from '../constants/app'
 // import _ from 'lodash'
 
@@ -153,7 +153,7 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
       messages.push(action.json)
       MessagesStore.setMessages(messages)
       MessagesStore.emitChange()
-      break    
+      break
   }
 
   return true
