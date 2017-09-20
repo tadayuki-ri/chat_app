@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'devise'
 # stylesheet_link_tagの行が止まらないようにする
 # gem 'sprockets', '2.11.0'
 # gem 'slim', '2.0.0'

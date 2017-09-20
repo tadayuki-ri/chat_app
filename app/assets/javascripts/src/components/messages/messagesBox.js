@@ -28,7 +28,7 @@ class MessagesBox extends React.Component {
   // getStateFromStore() {
   //   return MessagesStore.getChatByUserID(MessagesStore.getOpenChatUserID())
   // }
-  // コンポーネントライフサイクルに関しては次のリンク参照（http://qiita.com/aka_k_root/items/8ac3c33737709fa510cf）  
+  // コンポーネントライフサイクルに関しては次のリンク参照（http://qiita.com/aka_k_root/items/8ac3c33737709fa510cf）
   componentWillMount() {
     MessagesStore.onChange(this.onStoreChange.bind(this))
   }

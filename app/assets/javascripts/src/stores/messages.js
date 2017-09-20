@@ -153,7 +153,7 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
       messages.push(action.json)
       MessagesStore.setMessages(messages)
       MessagesStore.emitChange()
-      break    
+      break
   }
 
   return true
