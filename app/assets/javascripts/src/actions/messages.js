@@ -61,9 +61,5 @@ export default {
     })
   },
 
-
-
-
-
 }
 

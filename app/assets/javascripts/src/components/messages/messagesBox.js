@@ -1,18 +1,17 @@
 import React from 'react'
-import classNames from 'classNames'
+// import classNames from 'classNames'
 import MessagesStore from '../../stores/messages'
 import ReplyBox from '../../components/messages/replyBox'
-import UserStore from '../../stores/user'
-import Utils from '../../utils'
+// import UserStore from '../../stores/user'
+// import Utils from '../../utils'
 import _ from 'lodash'
-import MessagesAction from '../../actions/messages'
+// import MessagesAction from '../../actions/messages'
 
 class MessagesBox extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = this.initialState
-
   }
 
   get initialState() {
@@ -112,8 +111,6 @@ class MessagesBox extends React.Component {
     // })
     // console.log(hoge)
 
-
-
     // この辺りは試作なので完全削除してしまって良い
     // const messages = this.state.messages
     // const messages = this.messages
@@ -128,7 +125,6 @@ class MessagesBox extends React.Component {
     //       </div>
     //     )
     // })
-
 
     return (
       <li
