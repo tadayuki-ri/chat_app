@@ -14,9 +14,5 @@ export function CSRFToken() {
 const Root = window.location.origin || `${window.location.protocol}//${window.location.hostname}`
 const APIRoot = `${Root}/api`
 export const APIEndpoints = {
-<<<<<<< HEAD
-  messages: APIRoot + '/messages'
-=======
   messages: APIRoot + '/messages',
->>>>>>> react_rails_connection
 }
