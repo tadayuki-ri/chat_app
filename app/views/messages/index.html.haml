@@ -1,1 +1,13 @@
 #react-main
+
+= link_to "Log in", new_user_session_path unless user_signed_in?
+= link_to "My Page", user_path(@user) if user_signed_in?
+/ = link_to "Edit Page", edit_user_registration_path
+= link_to "Log out", destroy_user_session_path, method: :delete if user_signed_in?
+
+%p
+Name : 
+= @user.name if user_signed_in?
+%p
+Email : 
+= @user.email if user_signed_in?

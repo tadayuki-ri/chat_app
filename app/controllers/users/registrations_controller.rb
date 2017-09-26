@@ -1,21 +1,24 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    super
+    @user = User.new
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+    @user = current_user
+  end
 
   # PUT /resource
   # def update
@@ -36,7 +39,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  # nameカラムの追加に関しては以下参照(http://qiita.com/yasuno0327/items/ff17ddb6a4167fc6b471s)
+  def configure_permitted_parameters
+    added_attrs = [:name, :email, :password, :password_confirmation　]
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+    devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

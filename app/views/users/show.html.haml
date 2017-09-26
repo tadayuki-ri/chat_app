@@ -1,2 +1,16 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+%h1 My Page
+/ %p Find me in app/views/users/show.html.haml
+
+%p 
+Name: 
+= @user.name
+%p 
+Email: 
+= @user.email
+
+%p 
+Here is the 
+= link_to "Edit Page", edit_user_registration_path
+%p 
+Here is the 
+= link_to "Chat Page", root_path

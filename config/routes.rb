@@ -5,10 +5,10 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   
   } 
-  devise_scope :user do
-    get "sign_in", :to => "users/sessions#new"
-    get "sign_out", :to => "users/sessions#destroy" 
-  end
+  # devise_scope :user do
+  #   get "sign_in", :to => "users/sessions#new"
+  #   get "sign_out", :to => "users/sessions#destroy" 
+  # end
 
   root 'messages#index'
   # deviseではusers#index, users#showに対応するものが生成されないためそれだけ新たに作成する必要がある
