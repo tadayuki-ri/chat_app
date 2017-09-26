@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   # end
 
   root 'messages#index'
-  # deviseではusers#index, users#showに対応するものが生成されないためそれだけ新たに作成する必要がある
+  # deviseではusers#index, users#showに対応するものが生成されないためそれだけ新たに作成する必要がある。
   # $ rails generate controller Users index showで以下が自動生成されるが、これは使用しない。
   # get 'users/index'
   # get 'users/show'
+  get 'users/search'
   resources :users, :only => [:index, :show]
 
   namespace :api, { format: :json } do
