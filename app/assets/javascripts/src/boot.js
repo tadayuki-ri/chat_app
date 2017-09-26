@@ -7,11 +7,6 @@ import SearchRouter from './router/search'
 $(() => {
   const messageRouter = new MessageRouter()
   messageRouter.register()
-
-  page({click: false})
-})
-
-$(() => {
   const searchRouter = new SearchRouter()
   searchRouter.register()
 
