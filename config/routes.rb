@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   	# get 'messages' => 'messages#index'
   	get '/messages', to: 'messages#index'
   	post '/messages', to: 'messages#create'
+    get '/users/search', to: 'users#search'
   end
 end

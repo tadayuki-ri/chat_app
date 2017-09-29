@@ -11,19 +11,19 @@ export default {
   // },
   // sendMessage(userID, message) {
 
-  sendMessage(message) {
-    Dispatcher.handleViewAction({
-      type: ActionTypes.SEND_MESSAGE,
-      // userID: userID,
-      message: message,
-      timestamp: +new Date(),
-    })
-  },
+  // sendMessage(message) {
+  //   Dispatcher.handleViewAction({
+  //     type: ActionTypes.SEND_MESSAGE,
+  //     // userID: userID,
+  //     message: message,
+  //     timestamp: +new Date(),
+  //   })
+  // },
 
   getMessages() {
     return new Promise((resolve, reject) => {
       request
-      .get(`${APIEndpoints.messages}`)
+      .get(`${APIEndpoints.MESSAGES}`)
       .end((error, res) => {
         if (!error && res.status === 200) { // 200はアクセスが成功した際のステータスコード
           const json = JSON.parse(res.text)
@@ -42,7 +42,7 @@ export default {
   postMessages(message) {
     return new Promise((resolve, reject) => {
       request
-      .post(`${APIEndpoints.messages}`)
+      .post(`${APIEndpoints.MESSAGES}`)
       .set('X-CSRF-Token', CSRFToken())
       .send({message: message}) // これによりサーバ側に送りたいデータを送ることが出来ます。
       .end((error, res) => {

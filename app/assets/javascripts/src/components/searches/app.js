@@ -1,12 +1,14 @@
 import React from 'react'
 import SearchesBox from './searchesBox'
+import UsersList from './usersList'
 
 class App extends React.Component {
   render() {
     return (
         <div className='app'>
+          <h1>User Search Page</h1>
           <SearchesBox/>
-          Hello, world!
+          <UsersList/>
         </div>
       )
   }
