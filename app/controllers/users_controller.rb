@@ -9,5 +9,6 @@ class UsersController < ApplicationController
   end
 
   def search
+  	@user = current_user
   end
 end

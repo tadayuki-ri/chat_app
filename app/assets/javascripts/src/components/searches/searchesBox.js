@@ -32,7 +32,7 @@ class SearchesBox extends React.Component {
           onChange={ this.updateValue.bind(this) }
           value={ this.state.value }
           className='users-box__input'
-          placeholder='Type User Name' 
+          placeholder='Type User Name'
         />
       </div>
     )

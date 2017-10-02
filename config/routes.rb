@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   	get '/messages', to: 'messages#index'
   	post '/messages', to: 'messages#create'
     get '/users/search', to: 'users#search'
+    get '/friends', to: 'friends#index'
   end
 end

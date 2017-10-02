@@ -1,18 +1,12 @@
-require 'date'
-
 class Api::MessagesController < ApplicationController
   def index
+    # Messageモデルからのデータの取得
   	@messages = Message.all
   	render json: @messages
   end
 
   def create
-  	@message = Message.create({
-  	  # id: Message.last.id+1,
-  	  content: params[:message]
-  	  # created_at: Time.now,
-  	  # updated_at: Time.now
-  	})
+  	@message = Message.create(content: params[:message])
   	render json: @message
   end
 end

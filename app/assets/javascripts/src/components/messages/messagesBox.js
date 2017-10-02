@@ -6,6 +6,7 @@ import ReplyBox from '../../components/messages/replyBox'
 // import Utils from '../../utils'
 import _ from 'lodash'
 // import MessagesAction from '../../actions/messages'
+import FriendsAction from '../../actions/friends'
 
 class MessagesBox extends React.Component {
 
@@ -36,6 +37,10 @@ class MessagesBox extends React.Component {
   }
   onStoreChange() {
     this.setState(this.getStateFromStore())
+  }
+
+  getFriends() {
+    FriendsAction.getFriends()
   }
 
   // getMessages() {
@@ -131,7 +136,9 @@ class MessagesBox extends React.Component {
         // onClick={ this.getMessages.bind(this) }
       >
         <div className='message-box'>
-          <ul className='message-box__list'>
+          <ul className='message-box__list'
+            onClick={ this.getFriends.bind(this) }
+          >
             { messages_contents }
           </ul>
           <ReplyBox />,
