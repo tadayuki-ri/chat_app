@@ -7,14 +7,16 @@ export const ActionTypes = keyMirror({
   POST_MESSAGES: null,
   GET_USERS: null,
   GET_FRIENDS: null,
+  POST_FRIENDS: null,
+  // GET_ROOTPAGE: null,
 })
 
 export function CSRFToken() {
   return document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 }
 
-const Root = window.location.origin || `${window.location.protocol}//${window.location.hostname}`
-const APIRoot = `${Root}/api`
+export const Root = window.location.origin || `${window.location.protocol}//${window.location.hostname}`
+export const APIRoot = `${Root}/api`
 export const APIEndpoints = {
   MESSAGES: APIRoot + '/messages',
   USERS: APIRoot + '/users/search',

@@ -1,6 +1,5 @@
 import React from 'react'
 import FriendsStore from '../../stores/friends'
-import FriendsAction from '../../actions/friends'
 import _ from 'lodash'
 
 class FriendsList extends React.Component {
@@ -31,22 +30,16 @@ class FriendsList extends React.Component {
     this.setState(this.getStateFromStore())
   }
 
-  getFriends() {
-    FriendsAction.getFriends()
-  }
-
   render() {
     const friends_name = _.map(this.state.friends, (friend) => {
       return (
         <div key={friend.id}>
-          to_user_id : { friend.to_user_id }
+          friend name:{ friend.name }
         </div>
       )
     })
     return (
-      <div
-        onClick={ this.getFriends.bind(this) }
-      >
+      <div>
         This is FriendsList.
         { friends_name }
       </div>

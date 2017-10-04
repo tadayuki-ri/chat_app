@@ -5,12 +5,12 @@ import {ActionTypes} from '../constants/app'
 class FriendStore extends BaseStore {
 
   getFriends() {
-    if (!this.get('friends')) this.setFriends([])
-    return this.get('friends')
+    if (!this.get('friendship')) this.setFriends([])
+    return this.get('friendship')
   }
 
   setFriends(array) {
-    this.set('friends', array)
+    this.set('friendship', array)
   }
 }
 
@@ -22,6 +22,13 @@ FriendsStore.dispatchToken = Dispatcher.register(payload => {
   switch (action.type) {
     case ActionTypes.GET_FRIENDS:
       FriendsStore.setFriends(action.json)
+      FriendsStore.emitChange()
+      break
+
+    case ActionTypes.POST_FRIENDS:
+      const friendship = FriendsStore.getFriends()
+      friendship.push(action.json)
+      FriendsStore.setFriends(friendship)
       FriendsStore.emitChange()
       break
   }
