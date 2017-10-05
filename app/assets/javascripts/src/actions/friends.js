@@ -43,5 +43,26 @@ export default {
     })
   },
 
+  destroyFriends(friend) {
+    return new Promise((resolve, reject) => {
+      request
+      .delete(`${APIEndpoints.FRIENDS}`)
+      .set('X-CSRF-Token', CSRFToken())
+      .send({friend: friend})
+      .end((error, res) => {
+        if (!error && res.status === 200) {
+          const json = JSON.parse(res.text)
+          Dispatcher.handleServerAction({
+            type: ActionTypes.DESTROY_FRIENDS,
+            json,
+          })
+          resolve(json)
+        } else {
+          reject(res)
+        }
+      })
+    })
+  },
+
 }
 

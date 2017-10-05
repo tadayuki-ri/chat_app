@@ -31,6 +31,11 @@ FriendsStore.dispatchToken = Dispatcher.register(payload => {
       FriendsStore.setFriends(friendship)
       FriendsStore.emitChange()
       break
+
+    case ActionTypes.DESTROY_FRIENDS:
+      FriendsStore.setFriends(action.json)
+      FriendsStore.emitChange()
+      break
   }
   return true
 })

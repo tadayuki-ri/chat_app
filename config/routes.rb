@@ -25,5 +25,6 @@ Rails.application.routes.draw do
     get '/users/search', to: 'users#search'
     get '/friends', to: 'friends#index'
     post '/friends', to: 'friends#create'
+    delete '/friends', to: 'friends#destroy'
   end
 end

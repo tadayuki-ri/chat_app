@@ -43,7 +43,7 @@ class UsersList extends React.Component {
     const users_information = _.map(this.state.users, (user) => {
       return (
         <ul>
-          <li 
+          <li
           key={ user.id }
           onClick={ this.makeFriendship.bind(this, user) }
           >
