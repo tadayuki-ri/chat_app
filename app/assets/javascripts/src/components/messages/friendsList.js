@@ -41,8 +41,8 @@ class FriendsList extends React.Component {
       return (
         <ul>
           <div key={friend.id}>
-            friend name : { friend.name } 
-            　<button onClick={this.destroyFriendship.bind(this, friend)}>push to delete</button>
+            friend name : { friend.name }
+            <button onClick={this.destroyFriendship.bind(this, friend)}>push to delete</button>
           </div>
         </ul>
       )

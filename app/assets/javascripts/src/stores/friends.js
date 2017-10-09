@@ -26,9 +26,11 @@ FriendsStore.dispatchToken = Dispatcher.register(payload => {
       break
 
     case ActionTypes.POST_FRIENDS:
-      const friendship = FriendsStore.getFriends()
-      friendship.push(action.json)
-      FriendsStore.setFriends(friendship)
+      // const friendship = FriendsStore.getFriends()
+      // friendship.push(action.json)
+      // FriendsStore.setFriends(friendship)
+      // FriendsStore.emitChange()
+      FriendsStore.setFriends(action.json)
       FriendsStore.emitChange()
       break
 

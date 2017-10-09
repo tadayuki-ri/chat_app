@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   # 友達を全部返す
   def friends
-     friends_of_from_user + friends_of_to_user
+    friends_of_from_user + friends_of_to_user
   end
 
   # 友達申請する

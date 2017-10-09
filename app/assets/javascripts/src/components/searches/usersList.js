@@ -63,17 +63,3 @@ class UsersList extends React.Component {
 
 export default UsersList
 
-       // // <ul>
-       //  <div>
-       //    <li key={user.id}>name : { user.name }</li>
-       // //    <li key={user.id}>email : { user.email }</li>
-       //    <li key={user.id}>
-       //      <a href="/">Dashboard</a>
-       //    </li>
-       //    // <li><a href="/">Dashboard</a></li>
-       //    // <li
-       //    // onClick={this.makeFriendShip.bind(this, user)}
-       //    // ><a href="/">name:{ user.name }</a>
-       //    // </li>
-       //  // </ul>
-       //  </div>

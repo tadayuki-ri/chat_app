@@ -34,6 +34,7 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  # rails console/test/generateが作動しないため、一時的に以下をコメントアウト中
+  # gem 'spring'
 end
 
