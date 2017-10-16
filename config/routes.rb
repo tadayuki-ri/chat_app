@@ -20,9 +20,12 @@ Rails.application.routes.draw do
 
   namespace :api, { format: :json } do
   	# get 'messages' => 'messages#index'
-  	get '/messages', to: 'messages#index'
-  	post '/messages', to: 'messages#create'
+  	# get '/messages', to: 'messages#index'
+    get '/messages/:id', to: 'messages#index'
+  	# post '/messages', to: 'messages#create'
+    post '/messages/:id', to: 'messages#create'
     get '/users/search', to: 'users#search'
+    # get '/users/:id', to: 'users#index'
     get '/friends', to: 'friends#index'
     post '/friends', to: 'friends#create'
     delete '/friends', to: 'friends#destroy'

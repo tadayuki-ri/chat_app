@@ -18,6 +18,8 @@ export function CSRFToken() {
 export const Root = window.location.origin || `${window.location.protocol}//${window.location.hostname}`
 export const APIRoot = `${Root}/api`
 export const APIEndpoints = {
+  // MESSAGES: APIRoot + '/messages',
+  // MESSAGES: APIRoot + '/users/:id',
   MESSAGES: APIRoot + '/messages',
   USERS: APIRoot + '/users/search',
   FRIENDS: APIRoot + '/friends',

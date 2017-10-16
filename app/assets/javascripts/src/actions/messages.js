@@ -9,8 +9,15 @@ export default {
   //     userID: newUserID,
   //   })
   // },
-  // sendMessage(userID, message) {
 
+  changeOpenChatID(newUserID) {
+    Dispatcher.handleViewAction({
+      type: ActionTypes.UPDATE_OPEN_CHAT_ID,
+      userID: newUserID,
+    })
+  },
+
+  // sendMessage(userID, message) {
   // sendMessage(message) {
   //   Dispatcher.handleViewAction({
   //     type: ActionTypes.SEND_MESSAGE,
@@ -20,10 +27,30 @@ export default {
   //   })
   // },
 
-  getMessages() {
+  // getMessages(friend) {
+  //   return new Promise((resolve, reject) => {
+  //     request
+  //     .get(`${APIEndpoints.MESSAGES}`)
+  //     .query({friend: friend})
+  //     .end((error, res) => {
+  //       if (!error && res.status === 200) { // 200はアクセスが成功した際のステータスコード
+  //         const json = JSON.parse(res.text)
+  //         Dispatcher.handleServerAction({
+  //           type: ActionTypes.GET_MESSAGES,
+  //           json, // json: jsonと同じ。keyとvalueが一致する場合、このように省略出来ます。
+  //         })
+  //         resolve(json)
+  //       } else {
+  //         reject(res)
+  //       }
+  //     })
+  //   })
+  // },
+
+  getMessages(friend) {
     return new Promise((resolve, reject) => {
       request
-      .get(`${APIEndpoints.MESSAGES}`)
+      .get(`${APIEndpoints.MESSAGES}/${friend.id}`)
       .end((error, res) => {
         if (!error && res.status === 200) { // 200はアクセスが成功した際のステータスコード
           const json = JSON.parse(res.text)
@@ -39,10 +66,32 @@ export default {
     })
   },
 
-  postMessages(message) {
+  // postMessages(message) {
+  //   return new Promise((resolve, reject) => {
+  //     request
+  //     .post(`${APIEndpoints.MESSAGES}`)
+  //     .set('X-CSRF-Token', CSRFToken())
+  //     .send({message: message}) // これによりサーバ側に送りたいデータを送ることが出来ます。
+  //     .end((error, res) => {
+  //       if (!error && res.status === 200) {
+  //         const json = JSON.parse(res.text)
+  //         Dispatcher.handleServerAction({
+  //           type: ActionTypes.POST_MESSAGES,
+  //           // message,
+  //           json,
+  //         })
+  //         resolve(json)
+  //       } else {
+  //         reject(res)
+  //       }
+  //     })
+  //   })
+  // },
+
+  postMessages(message, id) {
     return new Promise((resolve, reject) => {
       request
-      .post(`${APIEndpoints.MESSAGES}`)
+      .post(`${APIEndpoints.MESSAGES}/${id}`)
       .set('X-CSRF-Token', CSRFToken())
       .send({message: message}) // これによりサーバ側に送りたいデータを送ることが出来ます。
       .end((error, res) => {
@@ -50,7 +99,6 @@ export default {
           const json = JSON.parse(res.text)
           Dispatcher.handleServerAction({
             type: ActionTypes.POST_MESSAGES,
-            // message,
             json,
           })
           resolve(json)

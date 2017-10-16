@@ -18,4 +18,11 @@ class Api::UsersController < ApplicationController
     end
     render json: @users
   end
+
+  # def index
+  # 	# 参考：https://qiita.com/QUANON/items/0033a5adb76d0cb963cd
+  # 	@messages = Message.where("(from_user_id = ?) AND (to_user_id = ?)",params[:id],current_user.id).or(Message.where("(from_user_id = ?) AND (to_user_id = ?)",current_user.id,params[:id]))
+  # 	render json: @messages
+  # end
+
 end

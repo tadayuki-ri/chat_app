@@ -99,6 +99,14 @@ class ChatStore extends BaseStore {
     this.set('messages', array)
   }
 
+  getOpenChatID(){
+    if (!this.get('openChatID')) this.setOpenChatID()
+    return this.get('openChatID')
+  }
+  setOpenChatID(id) {
+    this.set('openChatID', id)
+  }
+
 }
 const MessagesStore = new ChatStore()
 
@@ -111,6 +119,12 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
     //   messages[openChatID].lastAccess.currentUser = +new Date()
     //   MessagesStore.emitChange()
     //   break
+
+    case ActionTypes.UPDATE_OPEN_CHAT_ID:
+      // openChatID = action.userID
+      MessagesStore.setOpenChatID(action.userID)
+      MessagesStore.emitChange()
+      break
 
   //   case ActionTypes.SEND_MESSAGE:
   //     // const userID = action.userID
@@ -149,9 +163,11 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
       break
 
     case ActionTypes.POST_MESSAGES:
-      const messages = MessagesStore.getMessages()
-      messages.push(action.json)
-      MessagesStore.setMessages(messages)
+      // const messages = MessagesStore.getMessages()
+      // messages.push(action.json)
+      // MessagesStore.setMessages(messages)
+      // MessagesStore.emitChange()
+      MessagesStore.setMessages(action.json)
       MessagesStore.emitChange()
       break
   }

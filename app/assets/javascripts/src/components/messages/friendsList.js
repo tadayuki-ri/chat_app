@@ -1,6 +1,7 @@
 import React from 'react'
 import FriendsStore from '../../stores/friends'
 import FriendsAction from '../../actions/friends'
+import MessagesAction from '../../actions/messages'
 import _ from 'lodash'
 
 class FriendsList extends React.Component {
@@ -9,6 +10,7 @@ class FriendsList extends React.Component {
     super(props)
     this.state = this.initialState
     this.destroyFriendship = this.destroyFriendship.bind(this)
+    this.getMessages = this.getMessages.bind(this)
   }
 
   get initialState() {
@@ -36,13 +38,20 @@ class FriendsList extends React.Component {
     FriendsAction.destroyFriends(friend)
   }
 
+  getMessages(friend) {
+    MessagesAction.getMessages(friend)
+    MessagesAction.changeOpenChatID(friend.id)
+  }
+
   render() {
     const friends_name = _.map(this.state.friends, (friend) => {
       return (
         <ul>
           <div key={friend.id}>
-            friend name : { friend.name }
+            <li
+            onClick={this.getMessages.bind(this, friend)}>friend name : { friend.name }
             <button onClick={this.destroyFriendship.bind(this, friend)}>push to delete</button>
+            </li>
           </div>
         </ul>
       )
