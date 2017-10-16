@@ -1,5 +1,5 @@
 import React from 'react'
-// import classNames from 'classNames'
+import classNames from 'classNames'
 import MessagesStore from '../../stores/messages'
 import ReplyBox from '../../components/messages/replyBox'
 // import UserStore from '../../stores/user'
@@ -49,9 +49,20 @@ class MessagesBox extends React.Component {
 
   render() {
     const messages_contents = _.map(this.state.messages, (message) => {
+      const messageClasses = classNames({
+        'message-box__item': true,
+        'message-box__item--from-friend': message.from_user_id == this.state.id,
+        'clear': true,
+      })
+
       return (
-        <li key={message.id}>
-          { message.content }
+        // <li key={message.id}>
+        //   { message.content }
+        // </li>
+        <li key={ message.id } className={ messageClasses }>
+          <div className='message-box__item__contents'>
+            { message.content }
+          </div>
         </li>
       )
     })

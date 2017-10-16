@@ -13,16 +13,16 @@
   &__item {
     &__contents {
       background: rgba(0, 0, 0, 0.08);
-      float: left;
+      float: right;
       font-size: 14px;
       font-weight: 400;
       border-radius: 10px;
       padding: 10px 15px;
     }
 
-    &--from-current {
+    &--from-friend {
       .message-box__item__contents {
-        float: right;
+        float: left;
         background: #218CB9;
         color: #fff;
         margin-bottom: 10px;
