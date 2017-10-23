@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     get '/messages/:id', to: 'messages#index'
   	# post '/messages', to: 'messages#create'
     post '/messages/:id', to: 'messages#create'
+    # 作るなら以下の文だが意味ないのでコメントアウト。つまりpictureの内容も確認したければmessageと同様に確認すればいい
+    # get '/messages/pictures/:id', to: 'messages#index'
+    post '/messages/pictures/:id', to: 'messages#picture'
     get '/users/search', to: 'users#search'
     # get '/users/:id', to: 'users#index'
     get '/friends', to: 'friends#index'

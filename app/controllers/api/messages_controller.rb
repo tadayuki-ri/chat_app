@@ -33,4 +33,11 @@ class Api::MessagesController < ApplicationController
   	render json: @messages
   end
 
+  def picture
+    Message.create(from_user_id: current_user.id, to_user_id: params[:id], picture: params[:picture].original_filename)
+    File.binwrite("public/pictures/#{params[:picture].original_filename}", params[:picture].read)
+    @messages = Message.where("(from_user_id = ?) AND (to_user_id = ?)",params[:id],current_user.id).or(Message.where("(from_user_id = ?) AND (to_user_id = ?)",current_user.id,params[:id]))
+    render json: @messages
+  end
+
 end

@@ -5,6 +5,7 @@ export const ActionTypes = keyMirror({
   SEND_MESSAGE: null,
   GET_MESSAGES: null,
   POST_MESSAGES: null,
+  UPLOAD_PICTURE: null,
   GET_USERS: null,
   GET_FRIENDS: null,
   POST_FRIENDS: null,
@@ -21,6 +22,7 @@ export const APIEndpoints = {
   // MESSAGES: APIRoot + '/messages',
   // MESSAGES: APIRoot + '/users/:id',
   MESSAGES: APIRoot + '/messages',
+  PICTURE_MESSAGES: APIRoot + '/messages/pictures',
   USERS: APIRoot + '/users/search',
   FRIENDS: APIRoot + '/friends',
 }

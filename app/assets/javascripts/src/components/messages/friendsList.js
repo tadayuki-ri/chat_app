@@ -46,14 +46,12 @@ class FriendsList extends React.Component {
   render() {
     const friends_name = _.map(this.state.friends, (friend) => {
       return (
-        <ul>
-          <div key={friend.id}>
-            <li
-            onClick={this.getMessages.bind(this, friend)}>friend name : { friend.name }
-            <button onClick={this.destroyFriendship.bind(this, friend)}>push to delete</button>
-            </li>
-          </div>
-        </ul>
+        <div key={friend.id}>
+          <li
+          onClick={this.getMessages.bind(this, friend)}>friend name : { friend.name } 
+          <button onClick={this.destroyFriendship.bind(this, friend)}>push to delete</button>
+          </li>
+        </div>
       )
     })
     return (

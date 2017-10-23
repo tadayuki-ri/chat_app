@@ -99,7 +99,7 @@ class ChatStore extends BaseStore {
     this.set('messages', array)
   }
 
-  getOpenChatID(){
+  getOpenChatID() {
     if (!this.get('openChatID')) this.setOpenChatID()
     return this.get('openChatID')
   }
@@ -167,6 +167,11 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
       // messages.push(action.json)
       // MessagesStore.setMessages(messages)
       // MessagesStore.emitChange()
+      MessagesStore.setMessages(action.json)
+      MessagesStore.emitChange()
+      break
+
+    case ActionTypes.UPLOAD_PICTURE:
       MessagesStore.setMessages(action.json)
       MessagesStore.emitChange()
       break

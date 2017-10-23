@@ -48,38 +48,31 @@ class MessagesBox extends React.Component {
   }
 
   render() {
-    const messages_contents = _.map(this.state.messages, (message) => {
+    const all_messages = _.map(this.state.messages, (message) => {
       const messageClasses = classNames({
         'message-box__item': true,
-        'message-box__item--from-friend': message.from_user_id == this.state.id,
+        'message-box__item--from-friend': message.from_user_id === this.state.id,
         'clear': true,
       })
+      const message_picture = <img src={"/pictures/"+`${message.picture}`}/ >
 
       return (
-        // <li key={message.id}>
-        //   { message.content }
-        // </li>
         <li key={ message.id } className={ messageClasses }>
           <div className='message-box__item__contents'>
-            { message.content }
+            {　message.content ? message.content : message_picture }
           </div>
         </li>
       )
     })
 
-
     return (
-      <li
-        // onClick={ this.getMessages.bind(this) }
-      >
-        <div className='message-box'>
-          <ul className='message-box__list'>
-            This is your friend id: { this.state.id }
-            { messages_contents }
-          </ul>
-          <ReplyBox />,
-        </div>
-      </li>
+      <div className='message-box'>
+        <ul className='message-box__list'>
+          This is your friend id: { this.state.id }
+          { all_messages }
+        </ul>
+        <ReplyBox />,
+      </div>
       )
   }
 }

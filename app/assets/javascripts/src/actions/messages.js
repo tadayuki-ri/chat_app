@@ -109,5 +109,28 @@ export default {
     })
   },
 
+  // 画像のアップロード：参考https://visionmedia.github.io/superagent/#multipart-requests
+  uploadPicture(picture, id) {
+    return new Promise((resolve, reject) => {
+      request
+      .post(`${APIEndpoints.PICTURE_MESSAGES}/${id}`)
+      .set('X-CSRF-Token', CSRFToken())
+      // sendではなくattachを用いる
+      .attach('picture', picture)
+      .end((error, res) => {
+        if (!error && res.status === 200) {
+          const json = JSON.parse(res.text)
+          Dispatcher.handleServerAction({
+            type: ActionTypes.UPLOAD_PICTURE,
+            json,
+          })
+          resolve(json)
+        } else {
+          reject(res)
+        }
+      })
+    })
+  },
+
 }
 
