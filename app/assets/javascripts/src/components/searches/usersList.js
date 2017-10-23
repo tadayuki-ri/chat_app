@@ -1,7 +1,5 @@
 import React from 'react'
-// import classNames from 'classNames'
 import UsersStore from '../../stores/users'
-// import UsersAction from '../../actions/users'
 import FriendsAction from '../../actions/friends'
 import _ from 'lodash'
 
@@ -10,7 +8,6 @@ class UsersList extends React.Component {
   constructor(props) {
     super(props)
     this.state = this.initialState
-    // Cannot read property 'bind' of undefinedエラーへの対処
     this.makeFriendship = this.makeFriendship.bind(this)
   }
 

@@ -2,12 +2,7 @@ import React from 'react'
 import classNames from 'classNames'
 import MessagesStore from '../../stores/messages'
 import ReplyBox from '../../components/messages/replyBox'
-// import UserStore from '../../stores/user'
-// import Utils from '../../utils'
 import _ from 'lodash'
-// import MessagesAction from '../../actions/messages'
-// import FriendsAction from '../../actions/friends'
-// import UsersAction from '../../actions/users'
 
 class MessagesBox extends React.Component {
 
@@ -22,19 +17,10 @@ class MessagesBox extends React.Component {
 
   getStateFromStore() {
     return {
-      // id: MessagesStore.getOpenChatUserID(),
       id: MessagesStore.getOpenChatID(),
       messages: MessagesStore.getMessages(),
     }
   }
-
-  // getOpenChatUserID() {
-  //   return MessagesStore.openChatID
-  // }
-
-  // getStateFromStore() {
-  //   return MessagesStore.getChatByUserID(MessagesStore.getOpenChatUserID())
-  // }
 
   // コンポーネントライフサイクルに関しては次のリンク参照（http://qiita.com/aka_k_root/items/8ac3c33737709fa510cf）
   componentWillMount() {

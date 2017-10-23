@@ -5,18 +5,6 @@ import PictureUpload from '../../components/messages/pictureUpload'
 
 class ReplyBox extends React.Component {
 
-  // constructor(props) {
-  //   super(props)
-  //   this.state = this.initialState
-  // }
-
-  // get initialState() {
-  //   return {
-  //     value: '',
-  //     id: MessagesStore.getOpenChatID(),
-  //   }
-  // }
-
   constructor(props) {
     super(props)
     this.state = this.initialState
@@ -65,20 +53,6 @@ class ReplyBox extends React.Component {
     })
   }
 
-  // updatePicture(e) {
-  //   if (e.keyCode === 13) {
-  //     MessagesAction.uploadPicture(this.state.picture, this.state.id)
-  //     this.setState({
-  //       picture: '',
-  //     })
-  //   }
-  // }
-
-  // handlePicture(e) {
-  //   // ①イベントからfileの配列を受け取る
-  //   MessagesAction.uploadPicture(e.target.files[0], this.state.id)
-  // }
-
   render() {
     return (
       <div className='reply-box'>
@@ -102,50 +76,3 @@ class ReplyBox extends React.Component {
 }
 
 export default ReplyBox
-
-// var React = require('react/addons');
-// var UploadFileActionCreator = require('../actions/upload_file_action_creator');
-
-// var FileUploader = React.createClass({
-//     getInitialState: function() {
-//         return {
-//             dragging: false
-//         };
-//     },
-//     uploadFiles: function(files) {
-//         var formData = new FormData();
-
-//         for (var i = 0, f; f = files[i]; ++i) {
-//             formData.append('file', f);
-//             UploadFileActionCreator.upload(formData);
-//         }
-//     },
-
-
-//     handleChangeFile: function(e) {
-//         var files = e.target.files;
-
-//         this.uploadFiles(files);
-//     },
-//     render: function() {
-//         var className = this.state.dragging ? 'app-file-selection-area-dragging' : 'app-file-selection-area';
-
-//         var element =
-//             <div className={className}>
-//                 <div className="app-drop-area" >
-//                     <input type="file" className="app-upload-file" ref="file" onChange={this.handleChangeFile} />
-//                 </div>
-//             </div>
-
-//         return (element);
-//     }
-// });
-
-// module.exports = FileUploader;
-
-        // <input
-        //   type="file"
-        //   // onClick={this.handlePicture}
-        //   onChange={ (e)=>{this.readFile(e)} }
-        //   onClick={ (e)=>{e.target.value = null} }
-        // />

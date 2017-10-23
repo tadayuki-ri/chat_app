@@ -11,7 +11,6 @@ export default class MessageRouter extends BaseRouter {
 
   decorateApp(ctx, next) {
     (new ReactDecorator()).decorate('react-main', App)
-    // MessagesAction.getMessages()
     FriendsAction.getFriends()
     next()
   }
