@@ -24,7 +24,6 @@ class SearchesBox extends React.Component {
   render() {
     return (
       <div className='users-box'>
-        Hello! Please put user name into the box to search
         <input
           onChange={ this.updateValue.bind(this) }
           value={ this.state.value }

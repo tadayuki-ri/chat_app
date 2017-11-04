@@ -2,6 +2,8 @@ import React from 'react'
 import FriendsStore from '../../stores/friends'
 import FriendsAction from '../../actions/friends'
 import MessagesAction from '../../actions/messages'
+import MessagesStore from '../../stores/messages'
+import classNames from 'classNames'
 import _ from 'lodash'
 
 class FriendsList extends React.Component {
@@ -19,6 +21,7 @@ class FriendsList extends React.Component {
 
   getStateFromStore() {
     return {
+      id: MessagesStore.getOpenChatID(),
       friends: FriendsStore.getFriends(),
     }
   }
@@ -45,19 +48,25 @@ class FriendsList extends React.Component {
 
   render() {
     const friends_name = _.map(this.state.friends, (friend) => {
+      const friendClasses = classNames({
+        'friend-list__item__contents': true,
+        'friend-list__item__OpenChatID': friend.id === this.state.id,
+      })
+
       return (
-        <div key={friend.id}>
-          <li
-          onClick={this.getMessages.bind(this, friend)}>friend name : { friend.name } 
-          <button onClick={this.destroyFriendship.bind(this, friend)}>push to delete</button>
-          </li>
-        </div>
+        <li key={friend.id} className= 'friend-list__item'>
+          <div className= { friendClasses }
+            onClick={this.getMessages.bind(this, friend)}> { friend.name } <button onClick={this.destroyFriendship.bind(this, friend)}>Delete</button>
+          </div>
+        </li>
       )
     })
     return (
-      <div>
-        This is FriendsList.
-        { friends_name }
+      <div className='friend-list'>
+        <ul className='friend-list__list'>
+          Your Friends
+          { friends_name }
+        </ul>
       </div>
     )
   }

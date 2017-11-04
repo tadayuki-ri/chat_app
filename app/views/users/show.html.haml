@@ -1,19 +1,10 @@
-%h1 My Page
-/ %p Find me in app/views/users/show.html.haml
-%p 
-Name: 
-= @user.name
-%p 
-Email: 
-= @user.email
-
-%p 
-Here is the 
-= link_to "Edit Page", edit_user_registration_path
-%p 
-Here is the 
-= link_to "Chat Page", root_path
-
-%p
-Here you can find any user
-= link_to "Search User", users_search_path
+%div.my_page
+  %div.my_page_title
+    My Page
+  %div.my_page_name
+    Name : 
+    = @user.name
+  %div.my_page_email
+    Email :
+    = @user.email 
+  %a.my_page_btn{:class =>"btn", :href => edit_user_registration_path}  Edit Page 

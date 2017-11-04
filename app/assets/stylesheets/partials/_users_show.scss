@@ -1,0 +1,41 @@
+.my_page{
+  
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 998;
+
+  text-align: center;
+
+  &_title{
+    font-weight: bold;
+    font-size:7em;
+    margin: 1em 0;
+    letter-spacing: 1px;
+    line-height: 60px
+  }
+  &_name{
+    font-size: 20px;
+  }
+  &_email{
+    font-size: 20px;
+  }
+  &_btn{
+    line-height: 30px;
+    font-size: 20px;
+    display: inline-block;
+    background: rgba(0, 100, 100, 0.2);
+    border-radius: 10px;
+    & :hover{
+      background: rgba(0, 0, 0, 0.2);
+    }
+    & :active{
+      position: relative;
+      top: 7px;
+      box-shadow: none;
+    }
+  }
+
+}

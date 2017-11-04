@@ -3,13 +3,23 @@
 @import '_misc';
 @import '_print';
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 // Icons
 @import 'fonts/_fontawesome';
 
 // Partials
 @import 'partials/_header';
+@import 'partials/_friendsList';
 @import 'partials/_messagesBox';
+@import 'partials/_defaultmessagesBox';
 @import 'partials/_userList';
+@import 'partials/_users_show';
+@import 'partials/_users_search';
+@import 'partials/_registrations_new';
+@import 'partials/_registrations_edit';
+@import 'partials/_sessions_new';
 
 // Components
 @import 'components/_replyBox';

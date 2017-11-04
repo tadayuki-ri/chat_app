@@ -39,19 +39,18 @@ class UsersList extends React.Component {
   render() {
     const users_information = _.map(this.state.users, (user) => {
       return (
-        <ul>
-          <li
+        <ul className='users-list__list'>
+          <li className='users-list__item'
           key={ user.id }
           onClick={ this.makeFriendship.bind(this, user) }
           >
-            <a href="/">name : { user.name }</a>
+            <a href="/" className='users-list__content'>{ user.name }</a>
           </li>
         </ul>
       )
     })
     return (
-      <div>
-        UsersList
+      <div className='users-list'>
         { users_information }
       </div>
     )

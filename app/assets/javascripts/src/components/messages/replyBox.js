@@ -18,7 +18,6 @@ class ReplyBox extends React.Component {
     return {
       id: MessagesStore.getOpenChatID(),
       value: '',
-      picture: '',
     }
   }
 
@@ -35,10 +34,6 @@ class ReplyBox extends React.Component {
 
   handleKeyDown(e) {
     if (e.keyCode === 13) {
-      // MessagesAction.sendMessage(MessagesStore.getOpenChatUserID(), this.state.value)
-      // DBとして保存させない場合
-      // MessagesAction.sendMessage(this.state.value)
-      // ここからpostのアクションに移行させたい
       MessagesAction.postMessages(this.state.value, this.state.id)
       this.setState({
         value: '',
@@ -49,27 +44,24 @@ class ReplyBox extends React.Component {
   updateValue(e) {
     this.setState({
       value: e.target.value,
-      // value: MessagesStore.getMessages(),
     })
   }
 
   render() {
     return (
       <div className='reply-box'>
-        <h6>Type your message</h6>
         <input
-          // idかkeyを定めたい
-          // key ={ message.id}
+          key ={ this.state.value }
           value={ this.state.value }
           onKeyDown={ this.handleKeyDown.bind(this) }
           onChange={ this.updateValue.bind(this) }
           className='reply-box__input'
-          placeholder='Type message to reply to ..'
+          placeholder='Type your message here'
         />
-        <span className='reply-box__tip'>
-          Press <span className='reply-box__tip__button'>Enter</span> to send
-        </span>
-        <PictureUpload />,
+          <span className='reply-box__tip'>
+            Press <span className='reply-box__tip__button'>Enter</span> to send
+          </span>
+        <PictureUpload />
       </div>
     )
   }

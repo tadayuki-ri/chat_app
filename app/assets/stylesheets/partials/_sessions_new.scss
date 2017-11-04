@@ -1,0 +1,55 @@
+.log_in{
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 998;
+
+  &_title{
+    text-align: center;
+  }
+
+  .new_user{
+  	width: 560px;
+  	margin: 0 auto;
+  	padding: 30px;
+
+    .field{
+      input{
+        font-size: 20px;
+  	    margin: 0 auto;
+      }
+      input[type="email"]{
+      	width: 500px;
+      }
+      input[type="password"]{
+      	width: 500px;
+      }
+      label{
+        text-align: left;
+      }
+    }
+    .actions{
+      text-align: center;
+      padding-top: 20px;
+      input{
+        line-height: 30px;
+        font-size: 20px;
+        display: inline-block;
+        background: rgba(0, 100, 100, 0.2);
+        border-radius: 10px;
+        font-weight: bold;
+        & :hover{
+          background: rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+
+  a{
+  	line-height: 30px;
+    font-size: 20px;
+  	padding-top: 5px;
+  }
+}

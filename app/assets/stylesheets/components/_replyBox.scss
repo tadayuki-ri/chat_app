@@ -33,4 +33,21 @@
       margin: 0 3px;
     }
   }
+
+  .picture-upload{
+    display: inline-block;
+    line-height: 18px;
+    font-size: 15px;
+    input{
+      float: left;
+      margin: 10px;
+    }
+    button{
+      margin: 5px;
+      float: right;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+  }  
 }

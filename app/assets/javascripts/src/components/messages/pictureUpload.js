@@ -47,8 +47,7 @@ class PictureUpload extends React.Component {
 
   render() {
     return (
-      <div>
-        <h6>Upload Picture from here</h6>
+      <div className='picture-upload'>
         <input type="file" onChange={this.handlePicture} />
         <button type="submit" onClick={this.submitPicture}>Upload Picture</button>
       </div>

@@ -5,7 +5,7 @@ import UsersList from './usersList'
 class App extends React.Component {
   render() {
     return (
-        <div className='app'>
+        <div className='search'>
           <h1>User Search Page</h1>
           <SearchesBox/>
           <UsersList/>

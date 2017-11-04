@@ -40,12 +40,12 @@ class MessagesBox extends React.Component {
         'message-box__item--from-friend': message.from_user_id === this.state.id,
         'clear': true,
       })
-      const message_picture = <img src={"/pictures/"+`${message.picture}`}/ >
+      const message_picture = <img src={'/pictures/' + `${message.picture}`}/ >
 
       return (
         <li key={ message.id } className={ messageClasses }>
           <div className='message-box__item__contents'>
-            {　message.content ? message.content : message_picture }
+            { message.content ? message.content : message_picture }
           </div>
         </li>
       )
@@ -54,7 +54,6 @@ class MessagesBox extends React.Component {
     return (
       <div className='message-box'>
         <ul className='message-box__list'>
-          This is your friend id: { this.state.id }
           { all_messages }
         </ul>
         <ReplyBox />,

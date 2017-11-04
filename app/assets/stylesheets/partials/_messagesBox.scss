@@ -5,26 +5,28 @@
     top: 60px;
     left: 300px;
     right: 0;
-    bottom: 67px;
+    bottom: 97px;
     padding: 30px;
     overflow-y: scroll;
+    background: rgba(0, 0, 0, 0);
   }
 
   &__item {
     &__contents {
-      background: rgba(0, 0, 0, 0.08);
+      background: rgba(0, 0, 300, 0.08);
       float: right;
       font-size: 14px;
       font-weight: 400;
       border-radius: 10px;
       padding: 10px 15px;
+      margin: 5px;
     }
 
     &--from-friend {
       .message-box__item__contents {
         float: left;
-        background: #218CB9;
-        color: #fff;
+        background: rgba(0, 0, 0, 0.08);
+        color: black;
         margin-bottom: 10px;
       }
     }
