@@ -11,11 +11,10 @@ html {
 
 body {
   .header {
-    height: 60px;
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
+    height: 60px;
+    width: 100%;
     z-index: 998;
     background: rgba(0, 0, 0, 0.2);
 
@@ -42,13 +41,10 @@ body {
         background: rgba(0, 0, 0, 0.1);
         }
       }
-      .log_out{
-        border-top: 1px solid black;
-      }
     }
   }
 
-  position: relative;
+  padding-top: 60px;
 
   font: 300 13px/1.6 Roboto, 'Helvetica Neue', Helvetica, Arial;
   margin: 0 auto;

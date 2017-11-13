@@ -14,7 +14,7 @@ class ChatStore extends BaseStore {
   }
 
   getOpenChatID() {
-    if (!this.get('openChatID')) this.setOpenChatID()
+    if (!this.get('openChatID')) this.setOpenChatID(0)
     return this.get('openChatID')
   }
   setOpenChatID(id) {
@@ -29,7 +29,6 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
 
   switch (action.type) {
     case ActionTypes.UPDATE_OPEN_CHAT_ID:
-      // openChatID = action.userID
       MessagesStore.setOpenChatID(action.userID)
       MessagesStore.emitChange()
       break

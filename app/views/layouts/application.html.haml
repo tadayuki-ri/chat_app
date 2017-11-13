@@ -14,13 +14,11 @@
       %div.header-list
         %ul
           %li.dropdown
-            = link_to "Account", "#", {:class => 'dropdown-toggle', "data-toggle" => "dropdown"}
+            = link_to "Account", "#", {:class => 'dropdown-toggle', "data-toggle" => "dropdown"} if user_signed_in?
             %ul.dropdown-menu
               %li
                 = link_to "My Page", user_path(@user) if user_signed_in?
               %li
-                = link_to "Edit Page", edit_user_registration_path(@user) if user_signed_in?
-              %li.log_out
                 = link_to "Log out", destroy_user_session_path, method: :delete if user_signed_in?
           %li
             = link_to "Search User", users_search_path if user_signed_in?

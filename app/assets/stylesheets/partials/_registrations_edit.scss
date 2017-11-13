@@ -1,10 +1,4 @@
 .edit_page{
-  position: absolute;
-  top: 60px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 998;
 
   &_title{
     text-align: center;
@@ -58,12 +52,9 @@
       }
     }
   }
-
-  .back{
-    display: inline-block;
+  a{
+    display: block;
     text-align: center;
-  	line-height: 30px;
     font-size: 20px;
-  	padding-top: 5px;
   }
 }

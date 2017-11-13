@@ -51,7 +51,6 @@ class ReplyBox extends React.Component {
     return (
       <div className='reply-box'>
         <input
-          key ={ this.state.value }
           value={ this.state.value }
           onKeyDown={ this.handleKeyDown.bind(this) }
           onChange={ this.updateValue.bind(this) }

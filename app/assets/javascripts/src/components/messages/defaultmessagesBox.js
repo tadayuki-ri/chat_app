@@ -1,5 +1,4 @@
 import React from 'react'
-import classNames from 'classNames'
 
 class DefaultmessagesBox extends React.Component {
   render() {
