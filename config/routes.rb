@@ -13,13 +13,19 @@ Rails.application.routes.draw do
   root 'messages#index'
   # deviseではusers#index, users#showに対応するものが生成されないためそれだけ新たに作成する必要がある。
   get 'users/search'
-  resources :users, :only => [:index, :show]
+  resources :users, only: [:index, :show]
 
   namespace :api, { format: :json } do
-  	post '/messages', to: 'messages#create'
-    post '/messages/pictures', to: 'messages#upload_picture'
-    get '/users/search', to: 'users#search'
-    get '/users/:id', to: 'users#show'
+    resources :messages, only: [:create] do
+      collection do
+        post :upload_picture
+      end
+    end
+    resources :users, only: [:show] do
+      collection do
+        get :search
+      end
+    end
     resources :friends, :only=> [:index, :create, :destroy]
   end
 end

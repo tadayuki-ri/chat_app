@@ -57,7 +57,7 @@ export default {
   uploadPicture(picture, id) {
     return new Promise((resolve, reject) => {
       request
-      .post(`${APIEndpoints.MESSAGES}/pictures`)
+      .post(`${APIEndpoints.MESSAGES}/upload_picture`)
       .set('X-CSRF-Token', CSRFToken())
       .send({id: id})
       // sendではなくattachを用いる
