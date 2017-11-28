@@ -1,8 +1,5 @@
 class Api::MessagesController < ApplicationController
 
-  def index
-  end
-
   def create
   	Message.create(content: params[:message], from_user_id: current_user.id, to_user_id: params[:id])
   	@messages = Message.where("(from_user_id = ?) AND (to_user_id = ?)",params[:id],current_user.id).or(Message.where("(from_user_id = ?) AND (to_user_id = ?)",current_user.id,params[:id]))

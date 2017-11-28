@@ -29,18 +29,20 @@ export default {
     })
   },
 
-  sendMessages(message, id) {
+  sendMessage(message, id) {
     return new Promise((resolve, reject) => {
       request
       .post(`${APIEndpoints.MESSAGES}`)
       .set('X-CSRF-Token', CSRFToken())
-      .send({id: id})
-      .send({message: message})
+      .send({
+        id,
+        message,
+      })
       .end((error, res) => {
         if (!error && res.status === 200) {
           const json = JSON.parse(res.text)
           Dispatcher.handleServerAction({
-            type: ActionTypes.SEND_MESSAGES,
+            type: ActionTypes.SEND_MESSAGE,
             json,
           })
           resolve(json)
