@@ -38,7 +38,7 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
       MessagesStore.emitChange()
       break
 
-    case ActionTypes.POST_MESSAGES:
+    case ActionTypes.SEND_MESSAGE:
       MessagesStore.setMessages(action.json)
       MessagesStore.emitChange()
       break

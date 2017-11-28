@@ -22,17 +22,17 @@ export default {
     })
   },
 
-  postFriends(friend) {
+  makeFriends(friend) {
     return new Promise((resolve, reject) => {
       request
       .post(`${APIEndpoints.FRIENDS}`)
       .set('X-CSRF-Token', CSRFToken())
-      .send({friend: friend}) // current_userから引数friendへFriendshipが作られる
+      .send({friend: friend})
       .end((error, res) => {
         if (!error && res.status === 200) {
           const json = JSON.parse(res.text)
           Dispatcher.handleServerAction({
-            type: ActionTypes.POST_FRIENDS,
+            type: ActionTypes.MAKE_FRIENDS,
             json,
           })
           resolve(json)

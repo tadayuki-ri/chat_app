@@ -7,7 +7,7 @@ export default {
   getUsers(value) {
     return new Promise((resolve, reject) => {
       request
-      .get(`${APIEndpoints.USERS}`)
+      .get(`${APIEndpoints.USERS}/search`)
       .query({name: value})
       .end((error, res) => {
         if (!error && res.status === 200) {

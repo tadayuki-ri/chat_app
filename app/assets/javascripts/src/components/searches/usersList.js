@@ -33,7 +33,7 @@ class UsersList extends React.Component {
   }
 
   makeFriendship(user) {
-    FriendsAction.postFriends(user)
+    FriendsAction.makeFriends(user)
   }
 
   render() {
@@ -44,7 +44,7 @@ class UsersList extends React.Component {
           key={ user.id }
           onClick={ this.makeFriendship.bind(this, user) }
           >
-            <a href="/" className='users-list__content'>{ user.name }</a>
+            <a href='/' className='users-list__content'>{ user.name }</a>
           </li>
         </ul>
       )

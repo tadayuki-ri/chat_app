@@ -13,7 +13,7 @@ export default {
   getMessages(friend) {
     return new Promise((resolve, reject) => {
       request
-      .get(`${APIEndpoints.MESSAGES}/${friend.id}`)
+      .get(`${APIEndpoints.USERS}/${friend.id}}`)
       .end((error, res) => {
         if (!error && res.status === 200) { // 200はアクセスが成功した際のステータスコード
           const json = JSON.parse(res.text)
@@ -29,17 +29,20 @@ export default {
     })
   },
 
-  postMessages(message, id) {
+  sendMessage(message, id) {
     return new Promise((resolve, reject) => {
       request
-      .post(`${APIEndpoints.MESSAGES}/${id}`)
+      .post(`${APIEndpoints.MESSAGES}`)
       .set('X-CSRF-Token', CSRFToken())
-      .send({message: message}) // これによりサーバ側に送りたいデータを送ることが出来ます。
+      .send({
+        id,
+        message,
+      })
       .end((error, res) => {
         if (!error && res.status === 200) {
           const json = JSON.parse(res.text)
           Dispatcher.handleServerAction({
-            type: ActionTypes.POST_MESSAGES,
+            type: ActionTypes.SEND_MESSAGE,
             json,
           })
           resolve(json)
@@ -50,12 +53,13 @@ export default {
     })
   },
 
-  // 画像のアップロード：参考https://visionmedia.github.io/superagent/#multipart-requests
+  // 画像のアップロード(参考https://visionmedia.github.io/superagent/#multipart-requests)
   uploadPicture(picture, id) {
     return new Promise((resolve, reject) => {
       request
-      .post(`${APIEndpoints.PICTURE_MESSAGES}/${id}`)
+      .post(`${APIEndpoints.MESSAGES}/upload_picture`)
       .set('X-CSRF-Token', CSRFToken())
+      .send({id: id})
       // sendではなくattachを用いる
       .attach('picture', picture)
       .end((error, res) => {
