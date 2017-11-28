@@ -33,7 +33,7 @@ class UsersList extends React.Component {
   }
 
   makeFriendship(user) {
-    FriendsAction.postFriends(user)
+    FriendsAction.makeFriends(user)
   }
 
   render() {

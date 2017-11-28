@@ -34,7 +34,7 @@ class ReplyBox extends React.Component {
 
   handleKeyDown(e) {
     if (e.keyCode === 13) {
-      MessagesAction.postMessages(this.state.value, this.state.id)
+      MessagesAction.sendMessages(this.state.value, this.state.id)
       this.setState({
         value: '',
       })

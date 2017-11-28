@@ -1,19 +1,17 @@
 class Api::UsersController < ApplicationController
-  # searchアクション：ユーザー検索の際に検索ワードを先頭に含むuser名をjsonで返す
+
   def search
     if params[:name].blank?
-      @users = nil
-    else
-      # current_userを除いたすべてのユーザーを返す場合
-      users = User.where('name like ?', "#{params[:name]}%")
       @users = []
-      users.each do |user|
-      	if user != current_user
-          @users.push(user)
-      	end
-      end
+    else
+      @users = User.where.not(name: current_user.name).where('name like ?', "#{params[:name]}%")
     end
     render json: @users
+  end
+
+  def show
+    @messages = current_user.from_messages.where(to_user_id: params[:id]) | current_user.to_messages.where(from_user_id: params[:id])
+    render json: @messages
   end
 
 end
